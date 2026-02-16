@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Catan Connect For Japanese",
+  "version": "0.1",
+  "description": "Catan Connect用の日本語音声+効果音の機能",
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": [
+    "https://www.catan.de/modules/custom/catan_connect/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.catan.de/modules/custom/catan_connect/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sounds/wolf.mp3", "sounds/chicken.mp3", "injected.js"],
+      "matches": ["https://www.catan.de/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
